@@ -109,7 +109,7 @@ func BenchmarkAverage(b *testing.B) {
 	_ = avg
 }
 
-func BenchmarkScore(b *testing.B) {
+func BenchmarkRate(b *testing.B) {
 	rate := 0.0
 	rating := [5]int{134055, 57472, 143135, 365957, 1448459}
 	for i := 0; i < b.N; i++ {
@@ -117,4 +117,13 @@ func BenchmarkScore(b *testing.B) {
 	}
 
 	_ = rate
+}
+
+func BenchmarkScore(b *testing.B) {
+	score := 0.0
+	for i := 0; i < b.N; i++ {
+		score = GetWilsonScore(345, 345345)
+	}
+
+	_ = score
 }
