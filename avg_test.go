@@ -98,3 +98,23 @@ func TestScore(t *testing.T) {
 		t.Logf("given %v, got the expected %v", v.rating, score)
 	}
 }
+
+func BenchmarkAverage(b *testing.B) {
+	avg := 0.0
+	rating := [5]int{134055, 57472, 143135, 365957, 1448459}
+	for i := 0; i < b.N; i++ {
+		avg = Average(rating)
+	}
+
+	_ = avg
+}
+
+func BenchmarkScore(b *testing.B) {
+	rate := 0.0
+	rating := [5]int{134055, 57472, 143135, 365957, 1448459}
+	for i := 0; i < b.N; i++ {
+		rate = Rate(rating)
+	}
+
+	_ = rate
+}
